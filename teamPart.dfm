@@ -2,8 +2,8 @@ object teamPartForm: TteamPartForm
   Left = 0
   Top = 0
   Caption = #29699#38431#31649#29702
-  ClientHeight = 173
-  ClientWidth = 388
+  ClientHeight = 175
+  ClientWidth = 488
   Color = clCream
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -12,54 +12,73 @@ object teamPartForm: TteamPartForm
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 17
-  object hirePlayerButton: TButton
-    Left = 56
-    Top = 48
-    Width = 75
-    Height = 25
-    Caption = #38599#20323#29699#21592
-    TabOrder = 0
-  end
-  object firePlayerButton: TButton
-    Left = 137
-    Top = 47
-    Width = 75
-    Height = 25
-    Caption = #35299#38599#29699#21592
-    TabOrder = 1
-  end
-  object fireCoachButton: TButton
-    Left = 137
-    Top = 78
-    Width = 75
-    Height = 25
-    Caption = #35299#38599#25945#32451
-    TabOrder = 2
-  end
-  object hireCoachButton: TButton
-    Left = 56
-    Top = 79
-    Width = 75
-    Height = 25
-    Caption = #38599#20323#25945#32451
-    TabOrder = 3
-  end
   object seeTeamButton: TButton
-    Left = 218
-    Top = 47
+    Left = 350
+    Top = 64
     Width = 87
     Height = 25
     Caption = #26597#30475#29699#38431#20449#24687
-    TabOrder = 4
+    Enabled = False
+    TabOrder = 0
   end
   object repairArenaButton: TButton
-    Left = 218
-    Top = 78
+    Left = 350
+    Top = 95
     Width = 87
     Height = 25
     Caption = #32500#25252#29699#38431#29699#39302
+    Enabled = False
+    TabOrder = 1
+  end
+  object hirePlayerComboBox: TComboBox
+    Left = 56
+    Top = 64
+    Width = 137
+    Height = 25
+    Enabled = False
+    TabOrder = 2
+    Text = #35831#36873#25321#35201#38599#20323#30340#29699#21592
+  end
+  object firePlayerComboBox: TComboBox
+    Left = 199
+    Top = 64
+    Width = 145
+    Height = 25
+    Enabled = False
+    TabOrder = 3
+    Text = #35831#36873#25321#35201#35299#38599#30340#29699#21592
+  end
+  object hireCoachComboBox: TComboBox
+    Left = 56
+    Top = 95
+    Width = 137
+    Height = 25
+    Enabled = False
+    TabOrder = 4
+    Text = #35831#36873#25321#35201#38599#20323#30340#25945#32451
+  end
+  object fireCoachComboBox: TComboBox
+    Left = 199
+    Top = 95
+    Width = 145
+    Height = 25
+    Enabled = False
     TabOrder = 5
+    Text = #35831#36873#25321#35201#35299#38599#30340#25945#32451
+  end
+  object selectTeamComboBox: TComboBox
+    Left = 167
+    Top = 33
+    Width = 145
+    Height = 25
+    Hint = #35831#36873#25321#35201#31649#29702#30340#29699#38431
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+    Text = #35831#36873#25321#35201#31649#29702#30340#29699#38431
+    OnChange = selectTeamComboBoxChange
   end
 end
