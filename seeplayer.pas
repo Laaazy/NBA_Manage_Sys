@@ -50,7 +50,7 @@ begin
    //playerInTeamGrid.DataSource:=dbConnection.DataModule2.DataSource1;
    sqlStr:='select name as ''球员姓名'',position as ''球队角色'','+
    'ability as ''能力值'',team as ''所属球队'' from player where not (team is NULL)'+
-   'order by team';
+   'order by team desc';
    SQL.Add(sqlStr);
    Open;
   end;
