@@ -27,6 +27,7 @@ var
   sqlStr:String;
   flag:boolean;
   ciphertext:String;{加密后的密码，与数据库匹配}
+  Authority:String;{用户权限}
 
 implementation
 {$R *.dfm}
@@ -58,6 +59,8 @@ begin
            (ciphertext=FieldByName('passWord').AsString) then
            begin
               flag:=True;
+              Authority:=FieldByName('Authority').AsString;
+              main.Authority:=Authority;
               //ShowMessage('登陆成功！');
               Form1.hide;
               mainForm.show;

@@ -30,7 +30,7 @@ implementation
 
 {$R *.dfm}
 
-{æ–°çƒå‘˜åŠ å…¥è”ç›Ÿ}
+{ĞÂÇòÔ±¼ÓÈëÁªÃË}
 procedure TnewPlayerForm.addPlayerButtonClick(Sender: TObject);
 var
   newPlayerName:String;
@@ -39,10 +39,10 @@ var
   success:integer;
 begin
    success:=0;
-   newPlayerName:=playerNameEdit.Text;{æ–°çƒå‘˜å}
-   newPlayerSalary:=playerSalaryEdit.Text; {æ–°çƒå‘˜è–ªæ°´}
+   newPlayerName:=playerNameEdit.Text;{ĞÂÇòÔ±Ãû}
+   newPlayerSalary:=playerSalaryEdit.Text; {ĞÂÇòÔ±Ğ½Ë®}
    if (newPlayerName='') or (newPlayerSalary ='') then
-      ShowMessage('çƒå‘˜è¿›å…¥è”ç›Ÿå¤±è´¥ï¼Œè¯·æ£€æŸ¥å„æŒ‡æ ‡æ˜¯å¦æ­£ç¡®')
+      ShowMessage('ÇòÔ±½øÈëÁªÃËÊ§°Ü£¬Çë¼ì²é¸÷Ö¸±êÊÇ·ñÕıÈ·')
    else
    begin
     with DataModule2.ADOQuery1 do
@@ -56,12 +56,12 @@ begin
     Open;
     First;
     if FieldByName('name').AsString=newPlayerName then
-       ShowMessage('çƒå‘˜å·²ç»å­˜åœ¨ï¼')
+       ShowMessage('ÇòÔ±ÒÑ¾­´æÔÚ£¡')
     else
     begin
     Close;
     SQL.Clear;
-    sqlStr:='insert into market values(''çƒå‘˜'',:name,:salary)';
+    sqlStr:='insert into market values(''ÇòÔ±'',:name,:salary)';
     SQL.Add(sqlStr);
     Prepared:=true;
     Parameters.ParamByName('name').Value:=newPlayerName;
@@ -69,9 +69,9 @@ begin
     //active:=true;
     success:=ExecSQL;
     if success>0 then
-      showMessage('çƒå‘˜åŠ å…¥è”ç›ŸæˆåŠŸ')
+      showMessage('ÇòÔ±¼ÓÈëÁªÃË³É¹¦')
     else
-      ShowMessage('çƒå‘˜è¿›å…¥è”ç›Ÿå¤±è´¥ï¼Œè¯·æ£€æŸ¥å„æŒ‡æ ‡æ˜¯å¦æ­£ç¡®');
+      ShowMessage('ÇòÔ±½øÈëÁªÃËÊ§°Ü£¬Çë¼ì²é¸÷Ö¸±êÊÇ·ñÕıÈ·');
     end;
     end;
    end;
@@ -85,9 +85,9 @@ var
   success:integer;
 begin
   success:=0;
-  PlayerName:=playerNameEdit.Text;{é€€å‡ºè”ç›Ÿçš„çƒå‘˜å}
+  PlayerName:=playerNameEdit.Text;{ÍË³öÁªÃËµÄÇòÔ±Ãû}
   if PlayerName='' then
-    showMessage('è¯·è¾“å…¥è¦é€€å‡ºè”ç›Ÿçš„çƒå‘˜åï¼')
+    showMessage('ÇëÊäÈëÒªÍË³öÁªÃËµÄÇòÔ±Ãû£¡')
   else
   begin
     with DataModule2.ADOQuery1 do
@@ -100,7 +100,7 @@ begin
     Parameters.ParamByName('Name').Value:=PlayerName;
     Open;
     if IsEmpty then
-       ShowMessage('çƒå‘˜ä¸å­˜åœ¨ï¼')
+       ShowMessage('ÇòÔ±²»´æÔÚ£¡')
     else
     begin
       Close;
@@ -111,9 +111,9 @@ begin
       Parameters.ParamByName('PlayerName').Value:=PlayerName;
       success:=ExecSQL;
       if success>0 then
-        showMessage('çƒå‘˜é€€å‡ºè”ç›ŸæˆåŠŸ')
+        showMessage('ÇòÔ±ÍË³öÁªÃË³É¹¦')
       else
-        ShowMessage('çƒå‘˜é€€å‡ºè”ç›Ÿå¤±è´¥ï¼Œè¯·æ£€æŸ¥å„æŒ‡æ ‡æ˜¯å¦æ­£ç¡®');
+        ShowMessage('ÇòÔ±ÍË³öÁªÃËÊ§°Ü£¬Çë¼ì²é¸÷Ö¸±êÊÇ·ñÕıÈ·');
     end;
     end;
   end;
