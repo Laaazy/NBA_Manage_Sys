@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls,playerPart;
+  Dialogs, StdCtrls,playerPart,coachPart;
 
 type
   TmainForm = class(TForm)
@@ -14,6 +14,7 @@ type
     procedure playerPartButtonClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure coachPartButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,6 +28,11 @@ var
 implementation
 
 {$R *.dfm}
+ {进入教练模块}
+procedure TmainForm.coachPartButtonClick(Sender: TObject);
+begin
+    coachPartForm.Show;
+end;
 
 procedure TmainForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -39,6 +45,7 @@ begin
   playerPart.Authority:=Authority;
 end;
 
+{进入球员模块}
 procedure TmainForm.playerPartButtonClick(Sender: TObject);
 begin
   //mainForm.Hide;
