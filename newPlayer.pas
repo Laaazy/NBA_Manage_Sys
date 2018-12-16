@@ -14,6 +14,7 @@ type
     Label2: TLabel;
     addPlayerButton: TButton;
     procedure addPlayerButtonClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,7 +28,7 @@ implementation
 
 {$R *.dfm}
 
-{ĞÂÇòÔ±¼ÓÈëÁªÃË}
+{æ–°çƒå‘˜åŠ å…¥è”ç›Ÿ}
 procedure TnewPlayerForm.addPlayerButtonClick(Sender: TObject);
 var
   newPlayerName:String;
@@ -36,10 +37,10 @@ var
   success:integer;
 begin
    success:=0;
-   newPlayerName:=playerNameEdit.Text;{ĞÂÇòÔ±Ãû}
-   newPlayerSalary:=playerSalaryEdit.Text; {ĞÂÇòÔ±Ğ½Ë®}
+   newPlayerName:=playerNameEdit.Text;{æ–°çƒå‘˜å}
+   newPlayerSalary:=playerSalaryEdit.Text; {æ–°çƒå‘˜è–ªæ°´}
    if (newPlayerName='') or (newPlayerSalary ='') then
-      ShowMessage('ÇòÔ±½øÈëÁªÃËÊ§°Ü£¬Çë¼ì²é¸÷Ö¸±êÊÇ·ñÕıÈ·')
+      ShowMessage('çƒå‘˜è¿›å…¥è”ç›Ÿå¤±è´¥ï¼Œè¯·æ£€æŸ¥å„æŒ‡æ ‡æ˜¯å¦æ­£ç¡®')
    else
    begin
     with DataModule2.ADOQuery1 do
@@ -53,12 +54,12 @@ begin
     Open;
     First;
     if FieldByName('name').AsString=newPlayerName then
-       ShowMessage('ÇòÔ±ÒÑ¾­´æÔÚ£¡')
+       ShowMessage('çƒå‘˜å·²ç»å­˜åœ¨ï¼')
     else
     begin
     Close;
     SQL.Clear;
-    sqlStr:='insert into market values(''ÇòÔ±'',:name,:salary)';
+    sqlStr:='insert into market values(''çƒå‘˜'',:name,:salary)';
     SQL.Add(sqlStr);
     Prepared:=true;
     Parameters.ParamByName('name').Value:=newPlayerName;
@@ -66,12 +67,19 @@ begin
     //active:=true;
     success:=ExecSQL;
     if success>0 then
-      showMessage('ÇòÔ±¼ÓÈëÁªÃË³É¹¦')
+      showMessage('çƒå‘˜åŠ å…¥è”ç›ŸæˆåŠŸ')
     else
-      ShowMessage('ÇòÔ±½øÈëÁªÃËÊ§°Ü£¬Çë¼ì²é¸÷Ö¸±êÊÇ·ñÕıÈ·');
+      ShowMessage('çƒå‘˜è¿›å…¥è”ç›Ÿå¤±è´¥ï¼Œè¯·æ£€æŸ¥å„æŒ‡æ ‡æ˜¯å¦æ­£ç¡®');
     end;
     end;
    end;
+end;
+
+
+procedure TnewPlayerForm.FormShow(Sender: TObject);
+begin
+   playerNameEdit.Text:='';
+   playerSalaryEdit.Text:='';
 end;
 
 end.
