@@ -14,7 +14,6 @@ type
     Label2: TLabel;
     loginButton: TButton;
     registerButton: TButton;
-//    procedure seePlayerInMarket();
     procedure loginButtonClick(Sender: TObject);
   private
     { Private declarations }
@@ -73,24 +72,4 @@ begin
         ShowMessage('用户名或密码错误！');
   end;
 end;
-
-//procedure TForm1.seePlayerInMarket();
-// begin
-//    with DataModule2.ADOQuery1 do
-//     begin
-//     Close;
-//     SQL.Clear;
-//     sqlStr:='select * from market where class=''球员'' and name = :username';
-//     SQL.Add(sqlStr);
-//     Prepared := True;
-//     Parameters.ParamByName('username').Value :='安德烈·罗伯森';
-//     Open;
-//     First;
-//     while not Eof do
-//     begin
-//        ShowMessage(FieldByName('salary').AsString);
-//        Next;
-//     end;
-//     end;
-// end;
 end.
