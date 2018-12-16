@@ -13,8 +13,10 @@ type
     Label1: TLabel;
     Label2: TLabel;
     addPlayerButton: TButton;
+    deletePlayerButton: TButton;
     procedure addPlayerButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure deletePlayerButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,6 +77,47 @@ begin
    end;
 end;
 
+
+procedure TnewPlayerForm.deletePlayerButtonClick(Sender: TObject);
+var
+  PlayerName:String;
+  sqlStr:String;
+  success:integer;
+begin
+  success:=0;
+  PlayerName:=playerNameEdit.Text;{退出联盟的球员名}
+  if PlayerName='' then
+    showMessage('请输入要退出联盟的球员名！')
+  else
+  begin
+    with DataModule2.ADOQuery1 do
+    begin
+    Close;
+    SQL.Clear;
+    sqlStr:='select * from market where name=:Name';
+    SQL.Add(sqlStr);
+    Prepared:=true;
+    Parameters.ParamByName('Name').Value:=PlayerName;
+    Open;
+    if IsEmpty then
+       ShowMessage('球员不存在！')
+    else
+    begin
+      Close;
+      SQL.Clear;
+      sqlStr:='delete from market where name=:PlayerName';
+      SQL.Add(sqlStr);
+      Prepared:=True;
+      Parameters.ParamByName('PlayerName').Value:=PlayerName;
+      success:=ExecSQL;
+      if success>0 then
+        showMessage('球员退出联盟成功')
+      else
+        ShowMessage('球员退出联盟失败，请检查各指标是否正确');
+    end;
+    end;
+  end;
+end;
 
 procedure TnewPlayerForm.FormShow(Sender: TObject);
 begin
