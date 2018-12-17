@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/12/15 17:20:40.279.pas,d:\Documents\RAD Studio\Projects\Unit1.pas=d:\Documents\RAD Studio\Projects\client.pas</Transaction>
+    <Transaction>2018/12/15 17:20:40.279.dfm,d:\Documents\RAD Studio\Projects\Unit1.dfm=d:\Documents\RAD Studio\Projects\client.dfm</Transaction>
+    <Transaction>2018/12/15 17:46:14.685.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\dbConnection.pas</Transaction>
+    <Transaction>2018/12/15 17:46:14.685.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\dbConnection.dfm</Transaction>
+    <Transaction>2018/12/15 17:47:33.527.dproj,d:\Documents\RAD Studio\Projects\Project1.dproj=d:\Documents\RAD Studio\Projects\ClientForm.dproj</Transaction>
+    <Transaction>2018/12/16 11:19:03.562.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\newPlayer.pas</Transaction>
+    <Transaction>2018/12/16 11:19:03.562.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\newPlayer.dfm</Transaction>
+    <Transaction>2018/12/16 16:27:14.941.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\playerForm.pas</Transaction>
+    <Transaction>2018/12/16 16:27:14.941.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\playerForm.dfm</Transaction>
+    <Transaction>2018/12/16 16:44:37.281.pas,d:\Documents\RAD Studio\Projects\playerForm.pas=d:\Documents\RAD Studio\Projects\seeplayer.pas</Transaction>
+    <Transaction>2018/12/16 16:44:37.281.dfm,d:\Documents\RAD Studio\Projects\playerForm.dfm=d:\Documents\RAD Studio\Projects\seeplayer.dfm</Transaction>
+    <Transaction>2018/12/16 20:15:31.464.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\coachPart.pas</Transaction>
+    <Transaction>2018/12/16 20:15:31.464.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\coachPart.dfm</Transaction>
+    <Transaction>2018/12/16 20:25:11.214.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\newCoach.pas</Transaction>
+    <Transaction>2018/12/16 20:25:11.214.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\newCoach.dfm</Transaction>
+    <Transaction>2018/12/16 20:46:17.420.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\seeCoach.pas</Transaction>
+    <Transaction>2018/12/16 20:46:17.420.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\seeCoach.dfm</Transaction>
+    <Transaction>2018/12/16 21:22:01.512.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\teamPart.pas</Transaction>
+    <Transaction>2018/12/16 21:22:01.512.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\teamPart.dfm</Transaction>
+    <Transaction>2018/12/16 22:02:12.199.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\hirePlayer.pas</Transaction>
+    <Transaction>2018/12/16 22:02:12.199.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\hirePlayer.dfm</Transaction>
+    <Transaction>2018/12/17 18:26:07.950.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\arenaPart.pas</Transaction>
+    <Transaction>2018/12/17 18:26:07.950.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\arenaPart.dfm</Transaction>
+    <Transaction>2018/12/17 20:46:11.322.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\teamInfo.pas</Transaction>
+    <Transaction>2018/12/17 20:46:11.322.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\teamInfo.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="client.pas"/>
+    <File Path="client.dfm"/>
+    <File Path="coachPart.pas"/>
+    <File Path="coachPart.dfm"/>
+    <File Path="dbConnection.pas"/>
+    <File Path="dbConnection.dfm"/>
+    <File Path="main.pas"/>
+    <File Path="main.dfm"/>
+    <File Path="newCoach.pas"/>
+    <File Path="newCoach.dfm"/>
+    <File Path="newPlayer.pas"/>
+    <File Path="newPlayer.dfm"/>
+    <File Path="playerPart.pas"/>
+    <File Path="playerPart.dfm"/>
+    <File Path="seeCoach.pas"/>
+    <File Path="seeCoach.dfm"/>
+    <File Path="seeplayer.pas"/>
+    <File Path="seeplayer.dfm"/>
+    <File Path="teamPart.pas"/>
+    <File Path="teamPart.dfm"/>
+    <File Path="arenaPart.pas"/>
+    <File Path="arenaPart.dfm"/>
+    <File Path="teamInfo.pas"/>
+    <File Path="teamInfo.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>
