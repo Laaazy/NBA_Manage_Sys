@@ -12,7 +12,7 @@ object teamPartForm: TteamPartForm
   Font.Style = []
   OldCreateOrder = False
   Position = poOwnerFormCenter
-  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
   object seeTeamButton: TButton
@@ -41,6 +41,7 @@ object teamPartForm: TteamPartForm
     Enabled = False
     TabOrder = 2
     Text = #35831#36873#25321#35201#38599#20323#30340#29699#21592
+    OnChange = hirePlayerComboBoxChange
   end
   object firePlayerComboBox: TComboBox
     Left = 199
@@ -50,6 +51,7 @@ object teamPartForm: TteamPartForm
     Enabled = False
     TabOrder = 3
     Text = #35831#36873#25321#35201#35299#38599#30340#29699#21592
+    OnChange = firePlayerComboBoxChange
   end
   object hireCoachComboBox: TComboBox
     Left = 56
@@ -59,6 +61,7 @@ object teamPartForm: TteamPartForm
     Enabled = False
     TabOrder = 4
     Text = #35831#36873#25321#35201#38599#20323#30340#25945#32451
+    OnChange = hireCoachComboBoxChange
   end
   object fireCoachComboBox: TComboBox
     Left = 199
@@ -68,6 +71,7 @@ object teamPartForm: TteamPartForm
     Enabled = False
     TabOrder = 5
     Text = #35831#36873#25321#35201#35299#38599#30340#25945#32451
+    OnChange = fireCoachComboBoxChange
   end
   object selectTeamComboBox: TComboBox
     Left = 167
@@ -80,5 +84,15 @@ object teamPartForm: TteamPartForm
     TabOrder = 6
     Text = #35831#36873#25321#35201#31649#29702#30340#29699#38431
     OnChange = selectTeamComboBoxChange
+  end
+  object finishAboveButton: TButton
+    Left = 167
+    Top = 126
+    Width = 145
+    Height = 25
+    Caption = #23436#25104#20197#19978#25805#20316
+    Enabled = False
+    TabOrder = 7
+    OnClick = finishAboveButtonClick
   end
 end

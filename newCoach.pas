@@ -49,7 +49,7 @@ begin
     begin
     Close;
     SQL.Clear;
-    sqlStr:='select * from market where name=:newName';
+    sqlStr:='select * from market where class=''ΩÃ¡∑'' and name=:newName';
     SQL.Add(sqlStr);
     Prepared:=true;
     Parameters.ParamByName('newName').Value:=newCoachName;
@@ -93,7 +93,7 @@ begin
     begin
     Close;
     SQL.Clear;
-    sqlStr:='select * from market where name=:Name';
+    sqlStr:='select * from market where class=''ΩÃ¡∑'' and name=:Name';
     SQL.Add(sqlStr);
     Prepared:=true;
     Parameters.ParamByName('Name').Value:=CoachName;
@@ -104,7 +104,7 @@ begin
     begin
       Close;
       SQL.Clear;
-      sqlStr:='delete from market where name=:PlayerName';
+      sqlStr:='delete from market where class=''ΩÃ¡∑'' and name=:PlayerName';
       SQL.Add(sqlStr);
       Prepared:=True;
       Parameters.ParamByName('PlayerName').Value:=CoachName;

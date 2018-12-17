@@ -15,11 +15,11 @@ object coachPartForm: TcoachPartForm
   PixelsPerInch = 96
   TextHeight = 17
   object newCoachrButton: TButton
-    Left = 88
+    Left = 80
     Top = 64
-    Width = 81
+    Width = 113
     Height = 33
-    Caption = #25509#25910#26032#25945#32451
+    Caption = #25945#32451#21152#20837'/'#36864#20986#32852#30431
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -30,7 +30,7 @@ object coachPartForm: TcoachPartForm
     OnClick = newCoachrButtonClick
   end
   object seeCoachButton: TButton
-    Left = 175
+    Left = 199
     Top = 64
     Width = 81
     Height = 33

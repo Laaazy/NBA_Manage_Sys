@@ -31,32 +31,32 @@ type
 
 var
   teamPartForm: TteamPartForm;
-  teamName:String;//è¦æ“ä½œçš„çƒé˜Ÿåå­—
-  finishCode:integer;//æ˜¯å¦ç¡®è®¤çƒé˜Ÿæ“ä½œ
+  teamName:String;//Òª²Ù×÷µÄÇò¶ÓÃû×Ö
+  finishCode:integer;//ÊÇ·ñÈ·ÈÏÇò¶Ó²Ù×÷
 implementation
 
 {$R *.dfm}
 
 
-{åŠ è½½çƒé˜Ÿé€‰é¡¹}{åŠ è½½è¦é›‡ä½£çš„çƒå‘˜}{åŠ è½½è¦é›‡ä½£çš„æ•™ç»ƒ}
+{¼ÓÔØÇò¶ÓÑ¡Ïî}{¼ÓÔØÒª¹ÍÓ¶µÄÇòÔ±}{¼ÓÔØÒª¹ÍÓ¶µÄ½ÌÁ·}
 procedure TteamPartForm.finishAboveButtonClick(Sender: TObject);
 var
   sqlStr:String;
   success:integer;
 begin
-  finishCode:=MessageBox(0,'ç¡®è®¤å®Œæˆä»¥ä¸Šæ“ä½œå—ï¼Ÿ','å®Œæˆçƒé˜Ÿæ“ä½œ',MB_OKCANCEL);
+  finishCode:=MessageBox(0,'È·ÈÏÍê³ÉÒÔÉÏ²Ù×÷Âğ£¿','Íê³ÉÇò¶Ó²Ù×÷',MB_OKCANCEL);
   if finishCode=IDOK then
   begin
-     {æ‰§è¡Œä»¥ä¸Šå››ä¸ªæ“ä½œ}
-     {é›‡ä½£çƒå‘˜}
-      if CompareStr(hirePlayerComboBox.Text,'è¯·é€‰æ‹©è¦é›‡ä½£çš„çƒå‘˜')<>0 then
+     {Ö´ĞĞÒÔÉÏËÄ¸ö²Ù×÷}
+     {¹ÍÓ¶ÇòÔ±}
+      if CompareStr(hirePlayerComboBox.Text,'ÇëÑ¡ÔñÒª¹ÍÓ¶µÄÇòÔ±')<>0 then
       begin
         success:=-1;
         with DataModule2.ADOQuery1 do
         begin
           Close;
           SQL.Clear;
-          sqlStr:='insert into player values(:name,''å¾…åˆ†é…'',''å¾…è¯„ä¼°'',:team,NULL)';
+          sqlStr:='insert into player values(:name,''´ı·ÖÅä'',''´ıÆÀ¹À'',:team,NULL)';
           SQL.Add(sqlStr);
           Prepared:=True;
           Parameters.ParamByName('name').Value:=hirePlayerComboBox.Text;
@@ -67,30 +67,30 @@ begin
                success:=-1;
                Close;
                SQL.Clear;
-               sqlStr:='delete from market where class=''çƒå‘˜'' and name=:name';
+               sqlStr:='delete from market where class=''ÇòÔ±'' and name=:name';
                SQL.Add(sqlStr);
                Prepared:=True;
                Parameters.ParamByName('name').Value:=hirePlayerComboBox.Text;
                success:=ExecSQL;
                if success>0 then
-                  ShowMessage('é›‡ä½£çƒå‘˜æˆåŠŸ')
+                  ShowMessage('¹ÍÓ¶ÇòÔ±³É¹¦')
                else
-                  ShowMessage('é›‡ä½£çƒå‘˜å¤±è´¥');
+                  ShowMessage('¹ÍÓ¶ÇòÔ±Ê§°Ü');
              end
           else
-             ShowMessage('é›‡ä½£çƒå‘˜å¤±è´¥');
+             ShowMessage('¹ÍÓ¶ÇòÔ±Ê§°Ü');
         end;
       end;
 
-      {è§£é›‡çƒå‘˜}
-      if CompareStr(firePlayerComboBox.Text,'è¯·é€‰æ‹©è¦è§£é›‡çš„çƒå‘˜')<>0 then
+      {½â¹ÍÇòÔ±}
+      if CompareStr(firePlayerComboBox.Text,'ÇëÑ¡ÔñÒª½â¹ÍµÄÇòÔ±')<>0 then
       begin
         success:=-1;
         with DataModule2.ADOQuery1 do
         begin
           Close;
           SQL.Clear;
-          sqlStr:='insert into market values(''çƒå‘˜'',:name,''å¾…åå•†'')';
+          sqlStr:='insert into market values(''ÇòÔ±'',:name,''´ıĞ­ÉÌ'')';
           SQL.Add(sqlStr);
           Prepared:=True;
           Parameters.ParamByName('name').Value:=firePlayerComboBox.Text;
@@ -106,18 +106,18 @@ begin
                Parameters.ParamByName('name').Value:=firePlayerComboBox.Text;
                success:=ExecSQL;
                if success>0 then
-                  ShowMessage('è§£é›‡çƒå‘˜æˆåŠŸ')
+                  ShowMessage('½â¹ÍÇòÔ±³É¹¦')
                else
-                  ShowMessage('è§£é›‡çƒå‘˜å¤±è´¥');
+                  ShowMessage('½â¹ÍÇòÔ±Ê§°Ü');
              end
           else
-             ShowMessage('è§£é›‡çƒå‘˜å¤±è´¥');
+             ShowMessage('½â¹ÍÇòÔ±Ê§°Ü');
         end;
       end;
 
 
-      {é›‡ä½£æ•™ç»ƒ}
-      if CompareStr(hireCoachComboBox.Text,'è¯·é€‰æ‹©è¦é›‡ä½£çš„æ•™ç»ƒ')<>0 then
+      {¹ÍÓ¶½ÌÁ·}
+      if CompareStr(hireCoachComboBox.Text,'ÇëÑ¡ÔñÒª¹ÍÓ¶µÄ½ÌÁ·')<>0 then
       begin
         success:=-1;
         with DataModule2.ADOQuery1 do
@@ -135,30 +135,30 @@ begin
                success:=-1;
                Close;
                SQL.Clear;
-               sqlStr:='delete from market where class=''æ•™ç»ƒ'' and name=:name';
+               sqlStr:='delete from market where class=''½ÌÁ·'' and name=:name';
                SQL.Add(sqlStr);
                Prepared:=True;
                Parameters.ParamByName('name').Value:=hireCoachComboBox.Text;
                success:=ExecSQL;
                if success>0 then
-                  ShowMessage('é›‡ä½£æ•™ç»ƒæˆåŠŸ')
+                  ShowMessage('¹ÍÓ¶½ÌÁ·³É¹¦')
                else
-                  ShowMessage('é›‡ä½£æ•™ç»ƒå¤±è´¥');
+                  ShowMessage('¹ÍÓ¶½ÌÁ·Ê§°Ü');
              end
           else
-             ShowMessage('é›‡ä½£æ•™ç»ƒå¤±è´¥');
+             ShowMessage('¹ÍÓ¶½ÌÁ·Ê§°Ü');
         end;
       end;
 
-      {è§£é›‡æ•™ç»ƒ}
-      if CompareStr(fireCoachComboBox.Text,'è¯·é€‰æ‹©è¦è§£é›‡çš„æ•™ç»ƒ')<>0 then
+      {½â¹Í½ÌÁ·}
+      if CompareStr(fireCoachComboBox.Text,'ÇëÑ¡ÔñÒª½â¹ÍµÄ½ÌÁ·')<>0 then
       begin
         success:=-1;
         with DataModule2.ADOQuery1 do
         begin
           Close;
           SQL.Clear;
-          sqlStr:='insert into market values(''æ•™ç»ƒ'',:name,''å¾…åå•†'')';
+          sqlStr:='insert into market values(''½ÌÁ·'',:name,''´ıĞ­ÉÌ'')';
           SQL.Add(sqlStr);
           Prepared:=True;
           Parameters.ParamByName('name').Value:=fireCoachComboBox.Text;
@@ -174,12 +174,12 @@ begin
                Parameters.ParamByName('name').Value:=fireCoachComboBox.Text;
                success:=ExecSQL;
                if success>0 then
-                  ShowMessage('è§£é›‡æ•™ç»ƒæˆåŠŸ')
+                  ShowMessage('½â¹Í½ÌÁ·³É¹¦')
                else
-                  ShowMessage('è§£é›‡æ•™ç»ƒå¤±è´¥');
+                  ShowMessage('½â¹Í½ÌÁ·Ê§°Ü');
              end
           else
-             ShowMessage('è§£é›‡æ•™ç»ƒå¤±è´¥');
+             ShowMessage('½â¹Í½ÌÁ·Ê§°Ü');
         end;
       end;
 
@@ -190,7 +190,7 @@ end;
 
 
 
-{é‡æ–°æ˜¾ç¤ºç•Œé¢æ—¶é‡æ–°åŠ è½½å„ä¸‹æ‹‰åˆ—è¡¨}
+{ÖØĞÂÏÔÊ¾½çÃæÊ±ÖØĞÂ¼ÓÔØ¸÷ÏÂÀ­ÁĞ±í}
 procedure TteamPartForm.FormShow(Sender: TObject);
 var
   sqlStr:String;
@@ -206,15 +206,15 @@ begin
     selectTeamComboBox.Clear;
     hirePlayerComboBox.Clear;
     hireCoachComboBox.Clear;
-    selectTeamComboBox.Text:='è¯·é€‰æ‹©è¦ç®¡ç†çš„çƒé˜Ÿ';
-    hirePlayerComboBox.Text:='è¯·é€‰æ‹©è¦é›‡ä½£çš„çƒå‘˜';
-    hireCoachComboBox.Text:='è¯·é€‰æ‹©è¦é›‡ä½£çš„æ•™ç»ƒ';
-    firePlayerComboBox.Text:='è¯·é€‰æ‹©è¦è§£é›‡çš„çƒå‘˜';
-    fireCoachComboBox.Text:='è¯·é€‰æ‹©è¦è§£é›‡çš„æ•™ç»ƒ';
+    selectTeamComboBox.Text:='ÇëÑ¡ÔñÒª¹ÜÀíµÄÇò¶Ó';
+    hirePlayerComboBox.Text:='ÇëÑ¡ÔñÒª¹ÍÓ¶µÄÇòÔ±';
+    hireCoachComboBox.Text:='ÇëÑ¡ÔñÒª¹ÍÓ¶µÄ½ÌÁ·';
+    firePlayerComboBox.Text:='ÇëÑ¡ÔñÒª½â¹ÍµÄÇòÔ±';
+    fireCoachComboBox.Text:='ÇëÑ¡ÔñÒª½â¹ÍµÄ½ÌÁ·';
 
    with DataModule2.ADOQuery1 do
    begin
-      {åŠ è½½çƒé˜Ÿé€‰é¡¹}
+      {¼ÓÔØÇò¶ÓÑ¡Ïî}
       Close;
       SQL.Clear;
       sqlStr:='select name from team';
@@ -226,10 +226,10 @@ begin
         selectTeamComboBox.Items.Append(FieldByName('name').AsString);
         Next;
       end;
-     {åŠ è½½è¦é›‡ä½£çš„çƒå‘˜}
+     {¼ÓÔØÒª¹ÍÓ¶µÄÇòÔ±}
      Close;
      SQL.Clear;
-     sqlStr:='select name from market where class=''çƒå‘˜''';
+     sqlStr:='select name from market where class=''ÇòÔ±''';
      SQL.Add(sqlStr);
      Open;
      First;
@@ -238,10 +238,10 @@ begin
         hirePlayerComboBox.Items.Append(FieldByName('name').AsString);
         Next;
       end;
-     {åŠ è½½è¦é›‡ä½£çš„æ•™ç»ƒ}
+     {¼ÓÔØÒª¹ÍÓ¶µÄ½ÌÁ·}
      Close;
      SQL.Clear;
-     sqlStr:='select name from market where class=''æ•™ç»ƒ''';
+     sqlStr:='select name from market where class=''½ÌÁ·''';
      SQL.Add(sqlStr);
      Open;
      First;
@@ -253,39 +253,39 @@ begin
    end;
 end;
 
-{é›‡ä½£æ•™ç»ƒä¸‹æ‹‰èœå•è¢«é€‰æ‹©}
+{¹ÍÓ¶½ÌÁ·ÏÂÀ­²Ëµ¥±»Ñ¡Ôñ}
 procedure TteamPartForm.hireCoachComboBoxChange(Sender: TObject);
 begin
   if hireCoachComboBox.ItemIndex=-1 then
-     hireCoachComboBox.Text:='è¯·é€‰æ‹©è¦é›‡ä½£çš„æ•™ç»ƒ';
+     hireCoachComboBox.Text:='ÇëÑ¡ÔñÒª¹ÍÓ¶µÄ½ÌÁ·';
 end;
 
-{é›‡ä½£çƒå‘˜ä¸‹æ‹‰èœå•è¢«é€‰æ‹©}
+{¹ÍÓ¶ÇòÔ±ÏÂÀ­²Ëµ¥±»Ñ¡Ôñ}
 procedure TteamPartForm.hirePlayerComboBoxChange(Sender: TObject);
 begin
-  {æ²¡æœ‰ä»»ä½•ä¸€é¡¹è¢«é€‰ä¸­}
+  {Ã»ÓĞÈÎºÎÒ»Ïî±»Ñ¡ÖĞ}
   if hirePlayerComboBox.ItemIndex=-1 then
-     hirePlayerComboBox.Text:='è¯·é€‰æ‹©è¦é›‡ä½£çš„çƒå‘˜';
+     hirePlayerComboBox.Text:='ÇëÑ¡ÔñÒª¹ÍÓ¶µÄÇòÔ±';
 //  else
 //    ShowMessage(hirePlayerComboBox.text);
 end;
 
-{è§£é›‡æ•™ç»ƒä¸‹æ‹‰èœå•è¢«é€‰ä¸­}
+{½â¹Í½ÌÁ·ÏÂÀ­²Ëµ¥±»Ñ¡ÖĞ}
 procedure TteamPartForm.fireCoachComboBoxChange(Sender: TObject);
 begin
    if fireCoachComboBox.ItemIndex=-1 then
-      fireCoachComboBox.Text:='è¯·é€‰æ‹©è¦è§£é›‡çš„æ•™ç»ƒ';
+      fireCoachComboBox.Text:='ÇëÑ¡ÔñÒª½â¹ÍµÄ½ÌÁ·';
 end;
 
-{è§£é›‡çƒå‘˜ä¸‹æ‹‰èœå•è¢«é€‰ä¸­}
+{½â¹ÍÇòÔ±ÏÂÀ­²Ëµ¥±»Ñ¡ÖĞ}
 procedure TteamPartForm.firePlayerComboBoxChange(Sender: TObject);
 begin
     if firePlayerComboBox.ItemIndex=-1 then
-       firePlayerComboBox.Text:='è¯·é€‰æ‹©è¦è§£é›‡çš„çƒå‘˜';
+       firePlayerComboBox.Text:='ÇëÑ¡ÔñÒª½â¹ÍµÄÇòÔ±';
 end;
 
 
-{çƒé˜Ÿä¸‹æ‹‰é¡¹è¢«é€‰æ‹©}{åŠ è½½è¦è§£é›‡çš„çƒå‘˜}{åŠ è½½è¦è§£é›‡çš„æ•™ç»ƒ}
+{Çò¶ÓÏÂÀ­Ïî±»Ñ¡Ôñ}{¼ÓÔØÒª½â¹ÍµÄÇòÔ±}{¼ÓÔØÒª½â¹ÍµÄ½ÌÁ·}
 procedure TteamPartForm.selectTeamComboBoxChange(Sender: TObject);
 var
   sqlStr:String;
@@ -305,9 +305,9 @@ begin
       begin
         if selectTeamComboBox.Text=FieldByName('name').AsString then
         begin
-          flag:=True;{ä¸‹æ‹‰åˆ—è¡¨è¢«é€‰æ‹©çš„å†…å®¹æ­£ç¡®}
+          flag:=True;{ÏÂÀ­ÁĞ±í±»Ñ¡ÔñµÄÄÚÈİÕıÈ·}
           teamName:=selectTeamComboBox.Text;
-          {æ¿€æ´»å…¶ä»–é€‰é¡¹æ§ä»¶}
+          {¼¤»îÆäËûÑ¡Ïî¿Ø¼ş}
           hirePlayerComboBox.Enabled:=True;
           firePlayerComboBox.Enabled:=True;
           hireCoachComboBox.Enabled:=True;
@@ -316,11 +316,11 @@ begin
           repairArenaButton.Enabled:=True;
           finishAboveButton.Enabled:=True;
 
-          {é‡ç½®é›‡ä½£çƒå‘˜åŠæ•™ç»ƒä¸‹æ‹‰æ¡†}
-          hirePlayerComboBox.Text:='è¯·é€‰æ‹©è¦é›‡ä½£çš„çƒå‘˜';
-          hireCoachComboBox.Text:='è¯·é€‰æ‹©è¦é›‡ä½£çš„æ•™ç»ƒ';
+          {ÖØÖÃ¹ÍÓ¶ÇòÔ±¼°½ÌÁ·ÏÂÀ­¿ò}
+          hirePlayerComboBox.Text:='ÇëÑ¡ÔñÒª¹ÍÓ¶µÄÇòÔ±';
+          hireCoachComboBox.Text:='ÇëÑ¡ÔñÒª¹ÍÓ¶µÄ½ÌÁ·';
 
-          {åŠ è½½è¦è§£é›‡çš„çƒå‘˜}
+          {¼ÓÔØÒª½â¹ÍµÄÇòÔ±}
           Close;
           SQL.Clear;
           sqlStr:='select name from player where team=:teamName';
@@ -329,7 +329,7 @@ begin
           Parameters.ParamByName('teamName').Value:=teamName;
           Open;
           firePlayerComboBox.Clear;
-          firePlayerComboBox.Text:='è¯·é€‰æ‹©è¦è§£é›‡çš„çƒå‘˜';
+          firePlayerComboBox.Text:='ÇëÑ¡ÔñÒª½â¹ÍµÄÇòÔ±';
           First;
           while not Eof do
           begin
@@ -337,7 +337,7 @@ begin
             Next;
           end;
 
-          {åŠ è½½è¦è§£é›‡çš„æ•™ç»ƒ}
+          {¼ÓÔØÒª½â¹ÍµÄ½ÌÁ·}
           Close;
           SQL.Clear;
           sqlStr:='select name from coach where team=:teamName';
@@ -347,7 +347,7 @@ begin
           Open;
           First;
           fireCoachComboBox.Clear;
-          fireCoachComboBox.Text:='è¯·é€‰æ‹©è¦è§£é›‡çš„æ•™ç»ƒ';
+          fireCoachComboBox.Text:='ÇëÑ¡ÔñÒª½â¹ÍµÄ½ÌÁ·';
           while not Eof do
           begin
             fireCoachComboBox.Items.Append(FieldByName('name').AsString);
@@ -367,11 +367,11 @@ begin
           seeTeamButton.Enabled:=False;
           repairArenaButton.Enabled:=False;
 
-          selectTeamComboBox.Text:='è¯·é€‰æ‹©è¦ç®¡ç†çš„çƒé˜Ÿ';
-          hirePlayerComboBox.Text:='è¯·é€‰æ‹©è¦é›‡ä½£çš„çƒå‘˜';
-          hireCoachComboBox.Text:='è¯·é€‰æ‹©è¦é›‡ä½£çš„æ•™ç»ƒ';
-          firePlayerComboBox.Text:='è¯·é€‰æ‹©è¦è§£é›‡çš„çƒå‘˜';
-          fireCoachComboBox.Text:='è¯·é€‰æ‹©è¦è§£é›‡çš„æ•™ç»ƒ';
+          selectTeamComboBox.Text:='ÇëÑ¡ÔñÒª¹ÜÀíµÄÇò¶Ó';
+          hirePlayerComboBox.Text:='ÇëÑ¡ÔñÒª¹ÍÓ¶µÄÇòÔ±';
+          hireCoachComboBox.Text:='ÇëÑ¡ÔñÒª¹ÍÓ¶µÄ½ÌÁ·';
+          firePlayerComboBox.Text:='ÇëÑ¡ÔñÒª½â¹ÍµÄÇòÔ±';
+          fireCoachComboBox.Text:='ÇëÑ¡ÔñÒª½â¹ÍµÄ½ÌÁ·';
       end;
 
 

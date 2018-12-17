@@ -15,11 +15,11 @@ object playerPartForm: TplayerPartForm
   PixelsPerInch = 96
   TextHeight = 13
   object newPlayerButton: TButton
-    Left = 88
+    Left = 72
     Top = 56
-    Width = 81
+    Width = 113
     Height = 33
-    Caption = #25509#25910#26032#29699#21592
+    Caption = #29699#21592#21152#20837'/'#36864#20986#32852#30431
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -30,7 +30,7 @@ object playerPartForm: TplayerPartForm
     OnClick = newPlayerButtonClick
   end
   object seePlayerButton: TButton
-    Left = 175
+    Left = 191
     Top = 56
     Width = 81
     Height = 33
