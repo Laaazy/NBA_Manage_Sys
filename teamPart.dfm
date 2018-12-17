@@ -23,6 +23,7 @@ object teamPartForm: TteamPartForm
     Caption = #26597#30475#29699#38431#20449#24687
     Enabled = False
     TabOrder = 0
+    OnClick = seeTeamButtonClick
   end
   object repairArenaButton: TButton
     Left = 350
@@ -32,12 +33,14 @@ object teamPartForm: TteamPartForm
     Caption = #32500#25252#29699#38431#29699#39302
     Enabled = False
     TabOrder = 1
+    OnClick = repairArenaButtonClick
   end
   object hirePlayerComboBox: TComboBox
     Left = 56
     Top = 64
     Width = 137
     Height = 25
+    DropDownCount = 5
     Enabled = False
     TabOrder = 2
     Text = #35831#36873#25321#35201#38599#20323#30340#29699#21592
@@ -48,6 +51,7 @@ object teamPartForm: TteamPartForm
     Top = 64
     Width = 145
     Height = 25
+    DropDownCount = 5
     Enabled = False
     TabOrder = 3
     Text = #35831#36873#25321#35201#35299#38599#30340#29699#21592
@@ -58,6 +62,7 @@ object teamPartForm: TteamPartForm
     Top = 95
     Width = 137
     Height = 25
+    DropDownCount = 5
     Enabled = False
     TabOrder = 4
     Text = #35831#36873#25321#35201#38599#20323#30340#25945#32451
@@ -68,6 +73,7 @@ object teamPartForm: TteamPartForm
     Top = 95
     Width = 145
     Height = 25
+    DropDownCount = 5
     Enabled = False
     TabOrder = 5
     Text = #35831#36873#25321#35201#35299#38599#30340#25945#32451
@@ -79,6 +85,7 @@ object teamPartForm: TteamPartForm
     Width = 145
     Height = 25
     Hint = #35831#36873#25321#35201#31649#29702#30340#29699#38431
+    DropDownCount = 5
     ParentShowHint = False
     ShowHint = True
     TabOrder = 6

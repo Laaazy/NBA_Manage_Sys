@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls,dbConnection;
+  Dialogs, StdCtrls,dbConnection,arenaPart,teamInfo;
 
 type
   TteamPartForm = class(TForm)
@@ -23,6 +23,8 @@ type
     procedure hireCoachComboBoxChange(Sender: TObject);
     procedure firePlayerComboBoxChange(Sender: TObject);
     procedure fireCoachComboBoxChange(Sender: TObject);
+    procedure repairArenaButtonClick(Sender: TObject);
+    procedure seeTeamButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -270,6 +272,12 @@ begin
 //    ShowMessage(hirePlayerComboBox.text);
 end;
 
+{维护球馆}
+procedure TteamPartForm.repairArenaButtonClick(Sender: TObject);
+begin
+   arenaPartForm.Show;
+end;
+
 {解雇教练下拉菜单被选中}
 procedure TteamPartForm.fireCoachComboBoxChange(Sender: TObject);
 begin
@@ -286,6 +294,11 @@ end;
 
 
 {球队下拉项被选择}{加载要解雇的球员}{加载要解雇的教练}
+procedure TteamPartForm.seeTeamButtonClick(Sender: TObject);
+begin
+  teamInfoForm.Show;
+end;
+
 procedure TteamPartForm.selectTeamComboBoxChange(Sender: TObject);
 var
   sqlStr:String;
@@ -315,6 +328,11 @@ begin
           seeTeamButton.Enabled:=True;
           repairArenaButton.Enabled:=True;
           finishAboveButton.Enabled:=True;
+
+          {将要管理的球队传递给球馆维护部分}
+          arenaPart.teamName:=teamName;
+          {将要管理的球队传递给球队信息部分}
+          teamInfo.teamName:=teamName;
 
           {重置雇佣球员及教练下拉框}
           hirePlayerComboBox.Text:='请选择要雇佣的球员';
