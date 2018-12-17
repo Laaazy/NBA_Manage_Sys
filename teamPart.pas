@@ -16,7 +16,6 @@ type
     fireCoachComboBox: TComboBox;
     selectTeamComboBox: TComboBox;
     finishAboveButton: TButton;
-    procedure FormCreate(Sender: TObject);
     procedure selectTeamComboBoxChange(Sender: TObject);
     procedure finishAboveButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -48,34 +47,30 @@ begin
   finishCode:=MessageBox(0,'确认完成以上操作吗？','完成球队操作',MB_OKCANCEL);
   if finishCode=IDOK then
   begin
-     teamPartForm.Hide;
-     teamPartForm.Show;
      {执行以上四个操作}
-
      {雇佣球员}
-      if not SameText(hirePlayerComboBox.Text,'请选择要雇佣的球员') then
+      if CompareStr(hirePlayerComboBox.Text,'请选择要雇佣的球员')<>0 then
       begin
         success:=-1;
         with DataModule2.ADOQuery1 do
         begin
           Close;
           SQL.Clear;
-          sqlStr:='delete from market where class=''球员'' and name=:name';
+          sqlStr:='insert into player values(:name,''待分配'',''待评估'',:team,NULL)';
           SQL.Add(sqlStr);
-          Active:=True;
           Prepared:=True;
           Parameters.ParamByName('name').Value:=hirePlayerComboBox.Text;
+          Parameters.ParamByName('team').Value:=teamName;
           success:=ExecSQL;
           if success>0 then
              begin
                success:=-1;
                Close;
                SQL.Clear;
-               sqlStr:='insert into players values(:name,''待分配'',''待评估'',:team,NULL)';
+               sqlStr:='delete from market where class=''球员'' and name=:name';
                SQL.Add(sqlStr);
                Prepared:=True;
                Parameters.ParamByName('name').Value:=hirePlayerComboBox.Text;
-               Parameters.ParamByName('team').Value:=teamName;
                success:=ExecSQL;
                if success>0 then
                   ShowMessage('雇佣球员成功')
@@ -86,16 +81,137 @@ begin
              ShowMessage('雇佣球员失败');
         end;
       end;
-     ShowMessage('操作已成功完成！');
+
+      {解雇球员}
+      if CompareStr(firePlayerComboBox.Text,'请选择要解雇的球员')<>0 then
+      begin
+        success:=-1;
+        with DataModule2.ADOQuery1 do
+        begin
+          Close;
+          SQL.Clear;
+          sqlStr:='insert into market values(''球员'',:name,''待协商'')';
+          SQL.Add(sqlStr);
+          Prepared:=True;
+          Parameters.ParamByName('name').Value:=firePlayerComboBox.Text;
+          success:=ExecSQL;
+          if success>0 then
+             begin
+               success:=-1;
+               Close;
+               SQL.Clear;
+               sqlStr:='delete from player where name=:name';
+               SQL.Add(sqlStr);
+               Prepared:=True;
+               Parameters.ParamByName('name').Value:=firePlayerComboBox.Text;
+               success:=ExecSQL;
+               if success>0 then
+                  ShowMessage('解雇球员成功')
+               else
+                  ShowMessage('解雇球员失败');
+             end
+          else
+             ShowMessage('解雇球员失败');
+        end;
+      end;
+
+
+      {雇佣教练}
+      if CompareStr(hireCoachComboBox.Text,'请选择要雇佣的教练')<>0 then
+      begin
+        success:=-1;
+        with DataModule2.ADOQuery1 do
+        begin
+          Close;
+          SQL.Clear;
+          sqlStr:='insert into coach values(:name,:team,NULL)';
+          SQL.Add(sqlStr);
+          Prepared:=True;
+          Parameters.ParamByName('name').Value:=hireCoachComboBox.Text;
+          Parameters.ParamByName('team').Value:=teamName;
+          success:=ExecSQL;
+          if success>0 then
+             begin
+               success:=-1;
+               Close;
+               SQL.Clear;
+               sqlStr:='delete from market where class=''教练'' and name=:name';
+               SQL.Add(sqlStr);
+               Prepared:=True;
+               Parameters.ParamByName('name').Value:=hireCoachComboBox.Text;
+               success:=ExecSQL;
+               if success>0 then
+                  ShowMessage('雇佣教练成功')
+               else
+                  ShowMessage('雇佣教练失败');
+             end
+          else
+             ShowMessage('雇佣教练失败');
+        end;
+      end;
+
+      {解雇教练}
+      if CompareStr(fireCoachComboBox.Text,'请选择要解雇的教练')<>0 then
+      begin
+        success:=-1;
+        with DataModule2.ADOQuery1 do
+        begin
+          Close;
+          SQL.Clear;
+          sqlStr:='insert into market values(''教练'',:name,''待协商'')';
+          SQL.Add(sqlStr);
+          Prepared:=True;
+          Parameters.ParamByName('name').Value:=fireCoachComboBox.Text;
+          success:=ExecSQL;
+          if success>0 then
+             begin
+               success:=-1;
+               Close;
+               SQL.Clear;
+               sqlStr:='delete from coach where name=:name';
+               SQL.Add(sqlStr);
+               Prepared:=True;
+               Parameters.ParamByName('name').Value:=fireCoachComboBox.Text;
+               success:=ExecSQL;
+               if success>0 then
+                  ShowMessage('解雇教练成功')
+               else
+                  ShowMessage('解雇教练失败');
+             end
+          else
+             ShowMessage('解雇教练失败');
+        end;
+      end;
+
+     teamPartForm.Hide;
+     teamPartForm.Show;
   end;
 end;
 
 
-{窗口构造方法}
-procedure TteamPartForm.FormCreate(Sender: TObject);
+
+{重新显示界面时重新加载各下拉列表}
+procedure TteamPartForm.FormShow(Sender: TObject);
 var
   sqlStr:String;
 begin
+    hirePlayerComboBox.Enabled:=False;
+    hireCoachComboBox.Enabled:=False;
+    firePlayerComboBox.Enabled:=False;
+    fireCoachComboBox.Enabled:=False;
+    finishAboveButton.Enabled:=False;
+    seeTeamButton.Enabled:=False;
+    repairArenaButton.Enabled:=False;
+
+    selectTeamComboBox.Clear;
+    hirePlayerComboBox.Clear;
+    hireCoachComboBox.Clear;
+    selectTeamComboBox.Text:='请选择要管理的球队';
+    hirePlayerComboBox.Text:='请选择要雇佣的球员';
+    hireCoachComboBox.Text:='请选择要雇佣的教练';
+    firePlayerComboBox.Text:='请选择要解雇的球员';
+    fireCoachComboBox.Text:='请选择要解雇的教练';
+
    with DataModule2.ADOQuery1 do
    begin
       {加载球队选项}
@@ -134,26 +250,7 @@ begin
         hireCoachComboBox.Items.Append(FieldByName('name').AsString);
         Next;
       end;
-
    end;
-end;
-
-{重新显示界面时重新加载各下拉列表}
-procedure TteamPartForm.FormShow(Sender: TObject);
-begin
-    hirePlayerComboBox.Enabled:=False;
-    hireCoachComboBox.Enabled:=False;
-    firePlayerComboBox.Enabled:=False;
-    fireCoachComboBox.Enabled:=False;
-    finishAboveButton.Enabled:=False;
-    seeTeamButton.Enabled:=False;
-    repairArenaButton.Enabled:=False;
-
-    selectTeamComboBox.Text:='请选择要管理的球队';
-    hirePlayerComboBox.Text:='请选择要雇佣的球员';
-    hireCoachComboBox.Text:='请选择要雇佣的教练';
-    firePlayerComboBox.Text:='请选择要解雇的球员';
-    fireCoachComboBox.Text:='请选择要解雇的教练';
 end;
 
 {雇佣教练下拉菜单被选择}
@@ -169,6 +266,8 @@ begin
   {没有任何一项被选中}
   if hirePlayerComboBox.ItemIndex=-1 then
      hirePlayerComboBox.Text:='请选择要雇佣的球员';
+//  else
+//    ShowMessage(hirePlayerComboBox.text);
 end;
 
 {解雇教练下拉菜单被选中}
@@ -193,6 +292,7 @@ var
   flag:Boolean;
 begin
    flag:=False;
+   //ShowMessage(selectTeamComboBox.Text);
    with DataModule2.ADOQuery1 do
    begin
       Close;
