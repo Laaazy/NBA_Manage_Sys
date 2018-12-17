@@ -38,7 +38,6 @@ begin
   begin
    Close;
    SQL.Clear;
-   //PlayerInMarketGrid.DataSource:=dbConnection.DataModule2.DataSource1;
    sqlStr:='select name as ''球员姓名'',salary as ''薪水报价'' from market where class=''球员''';
    SQL.Add(sqlStr);
    Open;
@@ -47,7 +46,6 @@ begin
   begin
    Close;
    SQL.Clear;
-   //playerInTeamGrid.DataSource:=dbConnection.DataModule2.DataSource1;
    sqlStr:='select name as ''球员姓名'',position as ''球队角色'','+
    'ability as ''能力值'',team as ''所属球队'' from player where not (team is NULL)'+
    'order by team desc';
