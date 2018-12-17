@@ -12,7 +12,6 @@ object mainForm: TmainForm
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  Visible = True
   OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
@@ -60,5 +59,6 @@ object mainForm: TmainForm
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnClick = teamPartButtonClick
   end
 end
