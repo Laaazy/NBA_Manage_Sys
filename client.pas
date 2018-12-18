@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs,dbConnection, StdCtrls, main;
+  Dialogs,dbConnection, StdCtrls, main,registPart;
 
 type
   TForm1 = class(TForm)
@@ -15,6 +15,7 @@ type
     loginButton: TButton;
     registerButton: TButton;
     procedure loginButtonClick(Sender: TObject);
+    procedure registerButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,4 +73,11 @@ begin
         ShowMessage('用户名或密码错误！');
   end;
 end;
+
+{注册}
+procedure TForm1.registerButtonClick(Sender: TObject);
+begin
+    registForm.Show;
+end;
+
 end.
