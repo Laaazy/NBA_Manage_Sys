@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs,dbConnection, StdCtrls, main,registPart;
+  Dialogs,dbConnection, StdCtrls, main,registPart,teamPart, pngimage, ExtCtrls;
 
 type
   TForm1 = class(TForm)
@@ -14,6 +14,7 @@ type
     Label2: TLabel;
     loginButton: TButton;
     registerButton: TButton;
+    Image1: TImage;
     procedure loginButtonClick(Sender: TObject);
     procedure registerButtonClick(Sender: TObject);
   private
@@ -61,8 +62,11 @@ begin
               flag:=True;
               Authority:=FieldByName('Authority').AsString;
               main.Authority:=Authority;
+              teamPart.authority:=Authority;
               //ShowMessage('µÇÂ½³É¹¦£¡');
-              Form1.hide;
+              //Form1.hide;
+              managerNameEdit.Text:='';
+              managerPassWordEdit.Text:='';
               mainForm.show;
               Break;
            end

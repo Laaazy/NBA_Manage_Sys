@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls,dbConnection;
+  Dialogs, StdCtrls,dbConnection, jpeg, ExtCtrls;
 
 type
   TarenaPartForm = class(TForm)
@@ -16,6 +16,7 @@ type
     oldArenaLocationEdit: TEdit;
     Label1: TLabel;
     Label2: TLabel;
+    Image1: TImage;
     procedure FormShow(Sender: TObject);
     procedure repaireArenaButtonClick(Sender: TObject);
   private
