@@ -4,12 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs,StdCtrls,newCoach,seeCoach;
+  Dialogs,StdCtrls,newCoach,seeCoach, jpeg, ExtCtrls;
 
 type
   TcoachPartForm = class(TForm)
     newCoachrButton: TButton;
     seeCoachButton: TButton;
+    Image1: TImage;
     procedure newCoachrButtonClick(Sender: TObject);
     procedure seeCoachButtonClick(Sender: TObject);
   private
@@ -20,6 +21,7 @@ type
 
 var
   coachPartForm: TcoachPartForm;
+  authority:String;
 
 implementation
 
@@ -27,6 +29,12 @@ implementation
 
 procedure TcoachPartForm.newCoachrButtonClick(Sender: TObject);
 begin
+  {判断用户权限}
+  if authority='1' then
+    begin
+      showMessage('对不起，您无此权限');
+    end
+  else
   newCoachForm.Show;
 end;
 
