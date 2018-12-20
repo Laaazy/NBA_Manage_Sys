@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls,dbConnection;
+  Dialogs, StdCtrls,dbConnection, jpeg, ExtCtrls;
 
 type
   TnewCoachForm = class(TForm)
@@ -14,6 +14,7 @@ type
     coachSalaryEdit: TEdit;
     Label1: TLabel;
     Label2: TLabel;
+    Image1: TImage;
     procedure addCoachButtonClick(Sender: TObject);
     procedure deleteCoachButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
