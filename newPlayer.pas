@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Grids, ValEdit, StdCtrls,dbconnection;
+  Dialogs, Grids, ValEdit, StdCtrls,dbconnection, jpeg, ExtCtrls;
 
 type
   TnewPlayerForm = class(TForm)
@@ -14,6 +14,7 @@ type
     Label2: TLabel;
     addPlayerButton: TButton;
     deletePlayerButton: TButton;
+    Image1: TImage;
     procedure addPlayerButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure deletePlayerButtonClick(Sender: TObject);

@@ -4,12 +4,13 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls,newPlayer,seePlayer;
+  Dialogs, StdCtrls,newPlayer,seePlayer, jpeg, ExtCtrls;
 
 type
   TplayerPartForm = class(TForm)
     newPlayerButton: TButton;
     seePlayerButton: TButton;
+    Image1: TImage;
     procedure newPlayerButtonClick(Sender: TObject);
     procedure seePlayerButtonClick(Sender: TObject);
 //    procedure backToHomeButtonClick(Sender: TObject);
