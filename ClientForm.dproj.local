@@ -26,6 +26,8 @@
     <Transaction>2018/12/17 18:26:07.950.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\arenaPart.dfm</Transaction>
     <Transaction>2018/12/17 20:46:11.322.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\teamInfo.pas</Transaction>
     <Transaction>2018/12/17 20:46:11.322.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\teamInfo.dfm</Transaction>
+    <Transaction>2018/12/18 09:09:52.565.pas,d:\Documents\RAD Studio\Projects\Unit2.pas=d:\Documents\RAD Studio\Projects\registPart.pas</Transaction>
+    <Transaction>2018/12/18 09:09:52.565.dfm,d:\Documents\RAD Studio\Projects\Unit2.dfm=d:\Documents\RAD Studio\Projects\registPart.dfm</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="client.pas"/>
@@ -52,5 +54,7 @@
     <File Path="arenaPart.dfm"/>
     <File Path="teamInfo.pas"/>
     <File Path="teamInfo.dfm"/>
+    <File Path="registPart.pas"/>
+    <File Path="registPart.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

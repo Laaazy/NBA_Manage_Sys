@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/12/15 14:05:17.973.pas,d:\Documents\RAD Studio\Projects\Unit1.pas=d:\Documents\RAD Studio\Projects\client.pas</Transaction>
+    <Transaction>2018/12/15 14:05:53.801.pas,d:\Documents\RAD Studio\Projects\client.pas=d:\Documents\RAD Studio\Projects\modelLayer.pas</Transaction>
+    <Transaction>2018/12/15 14:05:53.814.pas,d:\Documents\RAD Studio\Projects\modelLayer.pas=d:\Documents\RAD Studio\Projects\client.pas</Transaction>
+    <Transaction>2018/12/15 14:10:17.796.pas,d:\Documents\RAD Studio\Projects\client.pas=d:\Documents\RAD Studio\Projects\modelLayer.pas</Transaction>
+    <Transaction>2018/12/15 14:10:28.185.dproj,d:\Documents\RAD Studio\Projects\Project1.dproj=d:\Documents\RAD Studio\Projects\Client.dproj</Transaction>
+    <Transaction>2018/12/15 14:10:57.227.dproj,d:\Documents\RAD Studio\Projects\Client.dproj=d:\Documents\RAD Studio\Projects\Clien.dproj</Transaction>
+    <Transaction>2018/12/15 14:11:02.755.dproj,d:\Documents\RAD Studio\Projects\Clien.dproj=d:\Documents\RAD Studio\Projects\Client.dproj</Transaction>
+    <Transaction>2018/12/15 14:11:09.716.dproj,d:\Documents\RAD Studio\Projects\Client.dproj=d:\Documents\RAD Studio\Projects\Client.dproj</Transaction>
+    <Transaction>2018/12/15 15:27:35.541.pas,d:\Documents\RAD Studio\Projects\Unit1.pas=d:\Documents\RAD Studio\Projects\modelLayerpas.pas</Transaction>
+    <Transaction>2018/12/15 15:27:35.541.dfm,d:\Documents\RAD Studio\Projects\Unit1.dfm=d:\Documents\RAD Studio\Projects\modelLayerpas.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

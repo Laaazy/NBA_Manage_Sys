@@ -52,7 +52,7 @@
 				<DesignClass>TDataModule</DesignClass>
 			</DCCReference>
 			<DCCReference Include="main.pas">
-				<Form>mainFormr</Form>
+				<Form>mainForm</Form>
 			</DCCReference>
 			<DCCReference Include="playerPart.pas">
 				<Form>playerPartForm</Form>
@@ -80,6 +80,9 @@
 			</DCCReference>
 			<DCCReference Include="teamInfo.pas">
 				<Form>teamInfoForm</Form>
+			</DCCReference>
+			<DCCReference Include="registPart.pas">
+				<Form>registForm</Form>
 			</DCCReference>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
@@ -140,6 +143,7 @@
 						<Excluded_Packages Name="$(BDS)\bin\dclofficexp140.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
 					</Excluded_Packages>
 				</Delphi.Personality>
+				<ModelSupport>False</ModelSupport>
 			</BorlandProject>
 			<ProjectFileVersion>12</ProjectFileVersion>
 		</ProjectExtensions>
