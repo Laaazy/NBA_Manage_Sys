@@ -4,18 +4,19 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Grids, DBGrids,dbConnection, DB, ADODB;
+  Dialogs, StdCtrls, Grids, DBGrids,dbConnection, DB, ADODB, jpeg, ExtCtrls;
 
 type
   TplayerForm = class(TForm)
     playerInMarket: TLabel;
-    playerInTeam: TLabel;
     PlayerInMarketGrid: TDBGrid;
     playerInTeamGrid: TDBGrid;
     QueryPlayerInMarket: TADOQuery;
     QueryPlayerInTeam: TADOQuery;
     DataSourcePlayerInMarket: TDataSource;
     DataSourcePlayerInTeam: TDataSource;
+    Image1: TImage;
+    Label1: TLabel;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
@@ -42,6 +43,14 @@ begin
    SQL.Add(sqlStr);
    Open;
   end;
+  playerInMarketGrid.Columns[0].Width:=100;
+  playerInMarketGrid.Columns.Items[0].Title.Alignment:=taCenter;
+  playerInMarketGrid.Columns.Items[0].Alignment:=taCenter;
+  playerInMarketGrid.Columns[1].Width:=100;
+  playerInMarketGrid.Columns.Items[1].Title.Alignment:=taCenter;
+  playerInMarketGrid.Columns.Items[1].Alignment:=taCenter;
+
+
   with QueryPlayerInTeam do
   begin
    Close;
@@ -52,6 +61,18 @@ begin
    SQL.Add(sqlStr);
    Open;
   end;
+  playerInTeamGrid.Columns[0].Width:=100;
+  playerInTeamGrid.Columns.Items[0].Title.Alignment:=taCenter;
+  playerInTeamGrid.Columns.Items[0].Alignment:=taCenter;
+  playerInTeamGrid.Columns[1].Width:=100;
+  playerInTeamGrid.Columns.Items[1].Title.Alignment:=taCenter;
+  playerInTeamGrid.Columns.Items[1].Alignment:=taCenter;
+  playerInTeamGrid.Columns[2].Width:=100;
+  playerInTeamGrid.Columns.Items[2].Title.Alignment:=taCenter;
+  playerInTeamGrid.Columns.Items[2].Alignment:=taCenter;
+  playerInTeamGrid.Columns[3].Width:=100;
+  playerInTeamGrid.Columns.Items[3].Title.Alignment:=taCenter;
+  playerInTeamGrid.Columns.Items[3].Alignment:=taCenter;
 end;
 
 end.

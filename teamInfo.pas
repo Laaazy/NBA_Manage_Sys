@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Grids, DBGrids,dbConnection, DB, ADODB;
+  Dialogs, StdCtrls, Grids, DBGrids,dbConnection, DB, ADODB, jpeg, ExtCtrls;
 
 type
   TteamInfoForm = class(TForm)
@@ -24,6 +24,7 @@ type
     coachInfoDataSource: TDataSource;
     playerInfoADOQuery: TADOQuery;
     playerInfoDataSource: TDataSource;
+    Image1: TImage;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
@@ -57,6 +58,15 @@ begin
       Open;
       arenaName:=FieldByName('球馆').AsString;
    end;
+   teamInfoDBGrid.Columns[0].Width:=120;
+   teamInfoDBGrid.Columns.Items[0].Title.Alignment:=taCenter;
+   teamInfoDBGrid.Columns.Items[0].Alignment:=taCenter;
+   teamInfoDBGrid.Columns[1].Width:=120;
+   teamInfoDBGrid.Columns.Items[1].Title.Alignment:=taCenter;
+   teamInfoDBGrid.Columns.Items[1].Alignment:=taCenter;
+   teamInfoDBGrid.Columns[2].Width:=120;
+   teamInfoDBGrid.Columns.Items[2].Title.Alignment:=taCenter;
+   teamInfoDBGrid.Columns.Items[2].Alignment:=taCenter;
 
    {查询球馆信息}
    with arenaInfoADOQuery do
@@ -69,6 +79,12 @@ begin
       Parameters.ParamByName('arenaName').Value:=arenaName;
       Open;
    end;
+   arenaInfoDBGrid.Columns[0].Width:=120;
+   arenaInfoDBGrid.Columns.Items[0].Title.Alignment:=taCenter;
+   arenaInfoDBGrid.Columns.Items[0].Alignment:=taCenter;
+   arenaInfoDBGrid.Columns[1].Width:=140;
+   arenaInfoDBGrid.Columns.Items[1].Title.Alignment:=taCenter;
+   arenaInfoDBGrid.Columns.Items[1].Alignment:=taCenter;
 
    {查询教练信息}
    with coachInfoADOQuery do
@@ -81,6 +97,10 @@ begin
       Parameters.ParamByName('teamName').Value:=teamName;
       Open;
    end;
+   coachInfoDBGrid.Columns[0].Width:=140;
+   coachInfoDBGrid.Columns.Items[0].Title.Alignment:=taCenter;
+   coachInfoDBGrid.Columns.Items[0].Alignment:=taCenter;
+
 
    {查询球员信息}
    with playerInfoADOQuery do
@@ -94,6 +114,16 @@ begin
       Parameters.ParamByName('team').Value:=teamName;
       Open;
    end;
+   playerInfoDBGrid.Columns[0].Width:=120;
+   playerInfoDBGrid.Columns.Items[0].Title.Alignment:=taCenter;
+   playerInfoDBGrid.Columns.Items[0].Alignment:=taCenter;
+   playerInfoDBGrid.Columns[1].Width:=120;
+   playerInfoDBGrid.Columns.Items[1].Title.Alignment:=taCenter;
+   playerInfoDBGrid.Columns.Items[1].Alignment:=taCenter;
+   playerInfoDBGrid.Columns[2].Width:=120;
+   playerInfoDBGrid.Columns.Items[2].Title.Alignment:=taCenter;
+   playerInfoDBGrid.Columns.Items[2].Alignment:=taCenter;
+
 end;
 
 end.

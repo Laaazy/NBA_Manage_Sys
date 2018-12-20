@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls,dbConnection,arenaPart,teamInfo;
+  Dialogs, StdCtrls,dbConnection,arenaPart,teamInfo, jpeg, ExtCtrls;
 
 type
   TteamPartForm = class(TForm)
@@ -16,6 +16,7 @@ type
     fireCoachComboBox: TComboBox;
     selectTeamComboBox: TComboBox;
     finishAboveButton: TButton;
+    Image1: TImage;
     procedure selectTeamComboBoxChange(Sender: TObject);
     procedure finishAboveButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -35,6 +36,7 @@ var
   teamPartForm: TteamPartForm;
   teamName:String;//要操作的球队名字
   finishCode:integer;//是否确认球队操作
+  authority:String;//用户权限
 implementation
 
 {$R *.dfm}
@@ -320,6 +322,14 @@ begin
         begin
           flag:=True;{下拉列表被选择的内容正确}
           teamName:=selectTeamComboBox.Text;
+          if authority='1' then
+          begin
+            seeTeamButton.Enabled:=True;
+            {将要管理的球队传递给球队信息部分}
+            teamInfo.teamName:=teamName;
+          end
+          else
+          begin
           {激活其他选项控件}
           hirePlayerComboBox.Enabled:=True;
           firePlayerComboBox.Enabled:=True;
@@ -372,6 +382,7 @@ begin
             Next;
           end;
           Break;
+        end;
         end;
         Next;
       end;
