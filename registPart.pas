@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls,dbConnection;
+  Dialogs, StdCtrls,dbConnection, pngimage, ExtCtrls;
 
 type
   TregistForm = class(TForm)
@@ -17,6 +17,7 @@ type
     Label3: TLabel;
     surePassWordEdit: TEdit;
     Label4: TLabel;
+    Image1: TImage;
     procedure registButtonClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -33,6 +34,8 @@ implementation
 {$R *.dfm}
 
 {注册}
+
+
 procedure TregistForm.FormShow(Sender: TObject);
 begin
   inviteCodeEdit.Text:='';
@@ -49,7 +52,7 @@ var
   i:integer;
   passWord:String;
 begin
-  success:=-1;
+   success:=-1;
    with DataModule2.ADOQuery1 do
    begin
      Close;
@@ -70,6 +73,20 @@ begin
             ShowMessage('两次密码不相同，请确认密码')
          else
          begin
+           Close;
+           SQL.Clear;
+           sqlStr:='select name from manager where name=:Name';
+           SQL.Add(sqlStr);
+           Prepared:=True;
+           Parameters.ParamByName('Name').Value:=usernameEdit.Text;
+           Open;
+           First;
+           //用户名已被使用
+           //ShowMessage(FieldByName('name').AsString);
+           if not SameStr('',FieldByName('name').AsString) then
+               ShowMessage('用户名已存在！')
+           else
+           begin
             //ShowMessage('密码相同');
             if inviteCodeEdit.Text='Mgr' then
               authority:='2'
@@ -90,7 +107,7 @@ begin
               passWord[I]:=Char(Ord(passWord[I])+32);
               Inc(i);
             end;
-            ShowMessage(passWord);
+            //ShowMessage(passWord);
             Parameters.ParamByName('password').Value:=passWord;
             Parameters.ParamByName('auth').Value:=authority;
             success:=ExecSQL;
@@ -102,9 +119,9 @@ begin
             else
               ShowMessage('注册失败');
               registForm.Hide;
-         end;
-     end;
-
+          end;
+         end;//两次密码不相同
+     end;//
 
    end;
 end;

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, DB, ADODB, Grids, DBGrids;
+  Dialogs, StdCtrls, DB, ADODB, Grids, DBGrids, jpeg, ExtCtrls;
 
 type
   TcoachForm = class(TForm)
@@ -16,6 +16,8 @@ type
     QueryCoachInTeam: TADOQuery;
     DataSourceCoachInMarket: TDataSource;
     DataSourceCoachInTeam: TDataSource;
+    Image1: TImage;
+    Label2: TLabel;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
@@ -42,6 +44,12 @@ begin
    SQL.Add(sqlStr);
    Open;
   end;
+  coachInMarketGrid.Columns[0].Width:=100;
+  coachInMarketGrid.Columns.Items[0].Title.Alignment:=taCenter;
+  coachInMarketGrid.Columns.Items[0].Alignment:=taCenter;
+  coachInMarketGrid.Columns[1].Width:=100;
+  coachInMarketGrid.Columns.Items[1].Title.Alignment:=taCenter;
+  coachInMarketGrid.Columns.Items[1].Alignment:=taCenter;
   with QueryCoachInTeam do
   begin
    Close;
@@ -51,6 +59,12 @@ begin
    SQL.Add(sqlStr);
    Open;
   end;
+  coachInTeamGrid.Columns[0].Width:=100;
+  coachInTeamGrid.Columns.Items[0].Title.Alignment:=taCenter;
+  coachInTeamGrid.Columns.Items[0].Alignment:=taCenter;
+  coachInTeamGrid.Columns[1].Width:=100;
+  coachInTeamGrid.Columns.Items[1].Title.Alignment:=taCenter;
+  coachInTeamGrid.Columns.Items[1].Alignment:=taCenter;
 end;
 
 end.
